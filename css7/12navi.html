@@ -31,6 +31,12 @@
       padding: 10px;
       text-decoration: none;
     }
+    .navi a:link {
+      color: rgb(14, 236, 96);
+    }
+    .navi a:visited {
+      color: pink;
+    }
     .navi a:hover,
     .navi a:focus {
       background-color: #222;
@@ -38,6 +44,18 @@
     }
     .navi a:active {
       background-color: #f00;
+    }
+    input[type="text"] {
+      background-color: aquamarine;
+    }
+    input[type="text"]:focus {
+      background-color: rgb(9, 161, 110);
+    }
+    input[type="password"] {
+      background-color: rgb(233, 138, 196);
+    }
+    input[type="password"]:focus {
+      background-color: rgb(129, 7, 112);
     }
   </style>
   <!--[if lt IE 9]>
@@ -55,5 +73,7 @@
       </ul>
     </nav>
   </div>
+  사용자ID: <input type="text" name="user" id=""><br>
+  비밀번호: <input type="password" name="passwd" id="">
 </body>
 </html>

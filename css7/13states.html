@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
 	<meta charset="utf-8">
 	<title> 가상 클래스 </title>
@@ -7,22 +8,27 @@
 		body {
 			background-color: #fff;
 		}
+
 		form fieldset {
 			margin-bottom: 25px;
 		}
+
 		form legend {
 			font-size: 15px;
 			font-weight: 600;
 		}
+
 		input:disabled {
 			background: #ddd;
 			border: 1px #ccc solid;
 		}
+
 		input:checked+span {
 			color: blue;
 		}
 	</style>
 </head>
+
 <body>
 	<form>
 		<fieldset>
@@ -32,10 +38,14 @@
 		<fieldset>
 			<legend>신청 과목</legend>
 			<p>이 달에 신청할 과목을 선택하세요</p>
-			<label><input type="radio" name="subject" value="speaking"><span>회화</span></label>
+			<label>
+				<input type="radio" name="subject" value="speaking">
+				<span>회화</span>
+			</label>
 			<label><input type="radio" name="subject" value="grammar"><span>문법</span></label>
 			<label><input type="radio" name="subject" value="writing"><span>작문</span></label>
 		</fieldset>
 	</form>
 </body>
+
 </html>
