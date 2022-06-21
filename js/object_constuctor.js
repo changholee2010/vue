@@ -21,21 +21,41 @@ function Table(param) {
 
     this.createTable = function () {
         this.tag += '<table border=1>';
-        this.tag += this.createHead();
-        this.tag += this.createBody();
+        this.createHead();
+        this.createBody();
         this.tag += '</table>';
         return this.tag;
     }
 
     this.createHead = function () {
-        this.fields.forEach();
+        this.tag += '<thead><tr>';
+        // let str = this.tag;
+        // this.fields.forEach((elem) => {
+        //     this.tag += '<th>' + elem + '</th>'; // this.tag => 사용.
+        // }); // 공부해보기.
+        for(let field of this.fields) {
+            console.log(field);
+            this.tag += '<th>' + field + '</th>'; 
+        }
+        // this.tag = str;
+        this.tag += '</tr></thead>';
     }
 
     this.createBody = function () {
-        this.data.forEach()
+        this.tag += '<tbody>';
+        this.data.forEach(elem => {
+            // tr
+            this.tag += '<tr>';
+            for (let field in elem) {
+                // td
+                this.tag += '<td>' + elem[field] + '</td>';
+            }
+            this.tag += '</tr>';
+        })
+        this.tag += '</tbody>';
     }
 }
-
+// function() { this => window} / new 함수 => this : 객체(object), / 이벤트 => this : 이벤트 대상.
 let data = [{
         sname: '홍길동',
         age: 15,
