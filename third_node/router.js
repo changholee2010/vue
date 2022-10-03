@@ -1,18 +1,30 @@
-var express = require('express');
+var express = require('express')
+
 var app = express();
 
-app.get('/', function(request, response) {
-    var html = '<a href="/a">A</a><a href="/B">B</a>';
-    response.send(html)
+var routerA = express.Router();
+var routerB = express.Router();
+
+routerA.get('/index', function (request, response) {
+    response.send('<h1>Index Page</h1>');
 })
-app.get('/a', function(request, response) {
-    response.send('<a href="/b">B</a>');
+routerA.get('/home', function (request, response) {
+    response.send('<h1>Home Page</h1>');
+})
+routerB.get('/index', function (request, response) {
+    response.send('<h1>Index Page</h1>');
+})
+routerB.get('/home', function (request, response) {
+    response.send('<h1>Home Page</h1>');
 })
 
-app.get('/b', function(request, response) {
-    response.send('<a href="/a">A</a>');
-})
+app.use('/a', routerA);
+app.use('/b', routerB);
 
-app.listen(52273, function() {
-    console.log('Server Running http://')
-})
+app.all('*', function (request, response) {
+    response.send('<h1>Not Found</h1>')
+});
+
+app.listen(52273, function () {
+    console.log('Server Running http://...')
+});
