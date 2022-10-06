@@ -12,10 +12,11 @@ html
         h1 hello
         h2 this page is ...
         hr 
+        h3= name
         a(href='https://www.daum.net', data-test='multiple Attribute') daum
         #header 
         .container 
-            .menu
+            .menu.first
             .content 
                 - for(let i=0; i<10; i++) {
                 p('class=data') #{i} times
