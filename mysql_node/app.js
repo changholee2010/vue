@@ -5,9 +5,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var client = mysql.createConnection({
-    user: 'lch',
-    password: 'lch',
-    host: '127.0.0.1',
+    user: 'mysql',
+    password: 'mysql',
+    host: '192.168.0.14',
     port: '3306',
     database: 'node_data'
 })
@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
     fs.readFile('list.html', 'utf8', function (error, data) {
         client.query('select * from products', function (error, results) {
             if (error) {
-                console.log('sql error');
+                console.log(error);
             } else {
                 res.send(ejs.render(data, {
                     data: results
