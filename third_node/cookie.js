@@ -9,6 +9,8 @@ app.get('/getCookie', function (request, reponse) {
     reponse.send(request.cookies);
 })
 
+
+
 app.get('/setCookie', function (request, response) {
     response.cookie('string', 'cookie');
     response.cookie('json', {
