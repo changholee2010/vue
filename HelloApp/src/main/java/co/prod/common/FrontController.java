@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.prod.controller.ChartAjax;
 import co.prod.controller.ChartControl;
 import co.prod.controller.MemberAddAjax;
 import co.prod.controller.MemberListAjax;
@@ -58,6 +59,8 @@ public class FrontController extends HttpServlet {
 		
 		// chart
 		map.put("/chart.do", new ChartControl());
+		// chart 데이터.
+		map.put("/chartAjax.do", new ChartAjax());
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package co.prod.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import co.prod.vo.ProductVO;
 import co.prod.vo.ReplyVO;
@@ -18,4 +19,8 @@ public interface ProductMapper {
 	public int insertReply(ReplyVO vo);
 	// 댓글조회.
 	public ReplyVO selectReply(int replyId);
+	
+	// chart.부서별인원현황.
+	public List<Map<String, Object>> chartInfo();
+	
 }
