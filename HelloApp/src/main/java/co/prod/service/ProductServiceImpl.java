@@ -49,4 +49,13 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.chartInfo();
 	}
 
+	@Override
+	public List<Map<String, Object>> getSchedules() {
+		List<Map<String, Object>> list = mapper.schedules();
+		for (Map<String, Object> map : list) {
+			System.out.println(map);
+		}
+		return list;
+	}
+
 }

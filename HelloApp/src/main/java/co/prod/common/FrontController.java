@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.prod.controller.ChartAjax;
 import co.prod.controller.ChartControl;
 import co.prod.controller.CovidForm;
+import co.prod.controller.FullAjax;
 import co.prod.controller.FullControl;
 import co.prod.controller.MapForm;
 import co.prod.controller.MemberAddAjax;
@@ -59,7 +60,7 @@ public class FrontController extends HttpServlet {
 		map.put("/replyAddAjax.do", new ReplyAddAjax());
 		// 상품댓글번호 조회.
 		map.put("/replySearchAjax.do", new ReplySearchAjax());
-		
+
 		// chart
 		map.put("/chart.do", new ChartControl());
 		// chart 데이터.
@@ -70,6 +71,7 @@ public class FrontController extends HttpServlet {
 		map.put("/map.do", new MapForm());
 		// fullcalendar.api
 		map.put("/fullcalendar.do", new FullControl());
+		map.put("/fullDataAjax.do", new FullAjax());
 	}
 
 	@Override

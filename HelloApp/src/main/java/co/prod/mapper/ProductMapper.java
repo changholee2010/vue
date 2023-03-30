@@ -23,4 +23,7 @@ public interface ProductMapper {
 	// chart.부서별인원현황.
 	public List<Map<String, Object>> chartInfo();
 	
+	// schedules
+	public List<Map<String, Object>> schedules();
+	
 }

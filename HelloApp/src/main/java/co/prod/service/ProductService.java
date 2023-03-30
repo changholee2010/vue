@@ -7,9 +7,9 @@ import co.prod.vo.ProductVO;
 import co.prod.vo.ReplyVO;
 
 public interface ProductService {
+	
 	public List<ProductVO> products();
 	public ProductVO getProduct(String code);
-	
 	// 상품에 대한 댓글목록.
 	public List<ReplyVO> replyList(String code);
 	// 댓글삭제.
@@ -18,7 +18,8 @@ public interface ProductService {
 	public boolean addReply(ReplyVO vo);
 	// 댓글조회.
 	public ReplyVO getReply(int replyId);
-	
 	// chart.
 	public List<Map<String, Object>> chartInfo();
+	// fullcalendar
+	public List<Map<String, Object>> getSchedules();
 }
