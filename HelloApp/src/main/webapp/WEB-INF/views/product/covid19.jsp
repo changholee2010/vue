@@ -22,6 +22,11 @@
     	// tr생성>td*여러개.
     	let tr = document.createElement('tr');
     	// td생성.
+    	showFields.forEach(field => {
+    		let td = document.createElement('td');
+    		td.innerText = center[field];
+    		tr.append(td);
+    	})
     	
     	return tr;
     }
