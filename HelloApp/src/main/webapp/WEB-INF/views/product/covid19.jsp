@@ -35,6 +35,12 @@
     function makeTr(center = {}) {
       // tr생성>td*여러개.
       let tr = document.createElement('tr');
+      tr.setAttribute('data-lng', center.lng);
+      tr.setAttribute('data-lat', center.lat);
+      tr.setAttribute('data-name', center.centerName);
+      
+      tr.addEventListener('click', openMapFnc);
+
       // td생성.
       showFields.forEach(field => {
         let td = document.createElement('td');
@@ -42,6 +48,15 @@
         tr.append(td);
       })
       return tr;
+    }
+    
+    function openMapFnc() {
+    	let tr = this; // event target.
+    	let lng = tr.dataset.lng; // tr.getAttribute('data-lng');
+    	let lat = tr.dataset.lat; // tr.getAttribute('data-lat');
+    	let name = tr.dataset.name; // tr.getAttribute('data-lat');
+    	//location.href = 'map.do?lng='+lng+'&lat='+lat;
+    	window.open('map.do?lng='+lng+'&lat='+lat+'&name='+name, '_blank')
     }
 
     // 전체목록.
@@ -68,7 +83,6 @@
             sidoAry.push(center.sido);
           }
         })
-        
 
         sidoAry.forEach(function (sido) {
           let opt = document.createElement('option');
@@ -88,7 +102,7 @@
     function findSidoFnc() {
       // 전체목록. 검색조건 filter한 결과를 tbody의 하위목록 출력.
       document.querySelector('#centerList').innerHTML = "";
-      let searchWord = document.getElementById('sido').value;
+      let searchWord = document.getElementById('sidoList').value;
       let filterAry = totalList.filter(function (center) {
         return center.sido == searchWord;
       });
