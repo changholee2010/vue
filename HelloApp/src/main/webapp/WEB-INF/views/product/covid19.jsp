@@ -63,6 +63,12 @@
         // totalList; //{id, centerName, address, sido}
         // push, pop, unshift, shift
         let sidoAry = [];
+        totalList.forEach(center => {
+          if (sidoAry.indexOf(center.sido) == -1) {
+            sidoAry.push(center.sido);
+          }
+        })
+        
 
         sidoAry.forEach(function (sido) {
           let opt = document.createElement('option');
