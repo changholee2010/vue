@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.prod.controller.ChartAjax;
 import co.prod.controller.ChartControl;
 import co.prod.controller.CovidForm;
+import co.prod.controller.FullControl;
 import co.prod.controller.MapForm;
 import co.prod.controller.MemberAddAjax;
 import co.prod.controller.MemberListAjax;
@@ -67,6 +68,8 @@ public class FrontController extends HttpServlet {
 		map.put("/covid19.do", new CovidForm());
 		// map api.
 		map.put("/map.do", new MapForm());
+		// fullcalendar.api
+		map.put("/fullcalendar.do", new FullControl());
 	}
 
 	@Override
