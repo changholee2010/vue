@@ -1,5 +1,7 @@
 package co.prod.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,10 +54,17 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Map<String, Object>> getSchedules() {
 		List<Map<String, Object>> list = mapper.schedules();
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+
 		for (Map<String, Object> map : list) {
-			System.out.println(map);
+//			System.out.println(map);
+			Map<String, Object> rmap = new HashMap<String, Object>();
+			rmap.put("title", map.get("TITLE"));
+			rmap.put("start", map.get("START_DATE"));
+			rmap.put("end", map.get("END_DATE"));
+			result.add(rmap);
 		}
-		return list;
+		return result;
 	}
 
 }
