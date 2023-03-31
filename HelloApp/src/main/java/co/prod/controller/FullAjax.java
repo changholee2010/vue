@@ -20,9 +20,11 @@ public class FullAjax implements Control {
 		// TODO Auto-generated method stub
 		ProductService service = new ProductServiceImpl();
 		List<Map<String, Object>> list = service.getSchedules();
+
 		String json = "";
 		Gson gson = new GsonBuilder().create();
 		json = gson.toJson(list);
+
 		return json + ".ajax";
 	}
 
