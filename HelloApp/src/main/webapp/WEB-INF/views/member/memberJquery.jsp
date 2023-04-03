@@ -110,29 +110,30 @@
       // 선택삭제버튼 이벤트 & 이벤트 핸들러.
       $('#delSelected').on('click', function (e) {
         e.preventDefault();
-        let memberIdAray = {}
+        let memberIdAray = '';
         console.log($('#list input:checked').closest('tr'));
         //$('#list input:checked').closest('tr').remove();
-         $('#list input:checked').each(function (idx, item) {
-        	 console.log($(item).parent().parent().attr('id'))
-        	 //memberIdAray.push({'memberId': $(item).parent().parent().attr('id')})
-        	 memberIdAry.memberId = $(item).parent().parent().attr('id');
-           //$(item).closest('tr').remove();
-         })
-         console.log(memberIdAray);
-         
-         // ajax호출.
-         $.ajax({
-        	 url: 'memberRemoveJquery.do', //호출할 컨트롤
-        	 method:'post',
-        	 data: {memberId:'user01', memberId:'user02'}, // memberId=user01&memberId=user02
-        	 success: function (result) {
-        		 
-        	 },
-        	 error: function (reject) {
-        		 console.log(reject)
-        	 }
-         })
+        $('#list input:checked').each(function (idx, item) {
+          console.log($(item).parent().parent().attr('id'));
+          //memberIdAray.push({'memberId': $(item).parent().parent().attr('id')})
+          // memberIdAry.memberId = $(item).parent().parent().attr('id');
+          //$(item).closest('tr').remove();
+          memberIdAray += '&memberId=' + $(item).parent().parent().attr('id');
+        })
+        console.log(memberIdAray);
+
+        // ajax호출.
+        $.ajax({
+          url: 'memberRemoveJquery.do', //호출할 컨트롤
+          method: 'post',
+          data: memberIdAray.substring(1), // memberId=user01&memberId=user02
+          success: function (result) {
+
+          },
+          error: function (reject) {
+            console.log(reject)
+          }
+        })
       })
 
       // 전체선택/ 전체해제

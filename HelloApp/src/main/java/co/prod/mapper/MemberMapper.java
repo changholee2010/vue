@@ -20,4 +20,5 @@ public interface MemberMapper {
 
 	// 다건삭제.
 	public int deleteMembers(List<MembersVO> list);
+	public int deleteMembersAry(String[] users);
 }

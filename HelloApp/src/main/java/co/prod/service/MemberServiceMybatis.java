@@ -51,4 +51,9 @@ public class MemberServiceMybatis implements MemberService {
 	public boolean removeMembers(List<MembersVO> list) {
 		return mapper.deleteMembers(list) > 0;
 	}
+
+	@Override
+	public boolean removeMembersAry(String[] users) {
+		return mapper.deleteMembersAry(users);
+	}
 }

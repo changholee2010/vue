@@ -26,4 +26,5 @@ public interface MemberService {
 
 	// 다건 삭제.
 	public boolean removeMembers(List<MembersVO> list);
+	public boolean removeMembersAry(String[] users);
 }
