@@ -14,7 +14,7 @@
     <div id="example">
         <p>Original message: "{{ message }}"</p>
         <p>Computed reversed message : "{{ reversedMessage }}"</p>
-        <p>Now is the time : "{{ now }} - {{ now2() }}"</p>
+        <p v-for="time in times">Now is the time : 'now': "{{ now }} -'now2' {{ now2() }}"</p>
         <button v-on:click="now2">Click</button>
     </div>
 
@@ -22,20 +22,36 @@
         var vm = new Vue({
             el: '#example',
             data: {
-                message: 'Hello'
+                message: 'Hello',
+                times: [{
+                    time: 1
+                }, {
+                    time: 2
+                }, {
+                    time: 3
+                }, {
+                    time: 4
+                }]
             },
             computed: {
                 reversedMessage: function () {
                     return this.message.split('').reverse().join('')
                 },
                 now: function () {
-                    return Date();
+                    setTimeout(function () {
+                        console.log("now")
+                        return Date();
+                    }, 500)
+                    // return Date();
                 }
             },
             methods: {
                 now2: function () {
-                    console.log('lll')
-                    return Date();
+                    setTimeout(function () {
+                        let date = Date();
+                        console.log("now1"+date)
+                        return date;
+                    }, 500)
                 }
             }
         })
