@@ -19,7 +19,7 @@
         </form>
         <ul>
             <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title"
-                v-bind:no="todo.id" v-on:remove="todos.splice(index, 1)"></li>
+                v-bind:no="todo.id" v-on:remove="removeFnc(index)"></li>
         </ul>
     </div>
 
@@ -60,6 +60,9 @@
                         title: this.newTodoText
                     })
                     this.newTodoText = ''
+                },
+                removeFnc: function (index) {
+                    this.todos.splice(index, 1)
                 }
             }
         })
