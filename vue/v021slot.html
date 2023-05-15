@@ -63,6 +63,32 @@
 
         })
     </script>
+
+    <div id="slot-app">
+        <current-user v-bind:user="user">
+            {{user.firstName}}
+        </current-user>
+    </div>
+    <script>
+        Vue.component('current-user', {
+            props: ['user'],
+            template: `
+            <span id="user">
+                <p>{{user.lastName}}</p>
+               <slot></slot>
+            </span>
+            `,
+        })
+        new Vue({
+            el: '#slot-app',
+            data: {
+                user: {
+                    firstName: 'kildong',
+                    lastName: 'Hong'
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>
