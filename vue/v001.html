@@ -30,6 +30,38 @@
       app.message = str;
     })
   </script>
+  <hr>
+
+  <div id="vm">
+    <my-component>
+      <div slot="header">
+        <p>{{msg}}</p>
+      </div>
+      <div slot="footer">
+        <p>{{foot}}</p>
+      </div>
+  </div>
+  </my-component>
+  <script>
+    Vue.component('my-component', {
+      template: `
+      <div>
+        <slot name="header"></slot>
+        <slot name="footer"></slot>
+      </div>
+      `
+    })
+
+    var vm = new Vue({
+      el: '#vm',
+      data: {
+        msg: 'Hello',
+        foot: 'Bye'
+      }
+    })
+  </script>
+
+
 </body>
 
 </html>
