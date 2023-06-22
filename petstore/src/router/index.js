@@ -1,17 +1,21 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from 'vue';
+import Router from 'vue-router';
+// import HelloWorld from '@/components/HelloWorld';
+import Form from '@/components/Form';
+import Main from '@/components/Main';
+import Product from '@/components/Product';
+
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [{
+    //   path: '/',
+    //   name: 'HelloWorld',
+    //   component: HelloWorld
+    // }, {
     path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld
-  }, {
-    path: '/main',
     name: 'iMain',
     component: Main,
     props: true,
@@ -21,7 +25,12 @@ export default new Router({
     component: Form,
     props: true
   }, {
+    path: '/product/:id',
+    name: 'Id',
+    component: Product,
+    props: true
+  }, {
     path: '*',
-    redirect: '/main'
+    redirect: '/'
   }]
 })
