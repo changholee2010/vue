@@ -13,7 +13,11 @@
     </ul>
     <h3>Essential Links</h3>
     <ul>
-        <li v-for="(item, ki) in essentials" v-bind:key="ki"><a v-bind:href="item.href" target="_blank" rel="noopener">{{item.text}}</a></li>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
     <h3>Ecosystem</h3>
     <ul>
@@ -31,17 +35,6 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  },
-  data: function () {
-    return {
-      essentials: [
-        { href: 'https://vuejs.org', text: 'Core Docs' },
-        { href: 'https://forum.vuejs.org', text: 'Forum' },
-        { href: 'https://chat.vuejs.org', text: 'Community Chat' },
-        { href: 'https://twitter.com/vuejs', text: 'Twitter' },
-        { href: 'https://news.vuejs.org', text: 'News' }
-      ]
-    }
   }
 }
 </script>
