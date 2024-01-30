@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <button type="button" v-on:click="childFunc" ref="btn">Click</button>
+    <button type="button" v-on:click="childFunc" ref="btn">자식컴포넌트 데이터 변경</button>
     <h3>message: {{msg}}</h3>
   </div>
 </template>
@@ -9,12 +9,12 @@
   export default {
     data() {
       return {
-        msg: '자식으로부터 보내는 메세지.'
+        msg: '초기 메세지.'
       }
     },
     methods: {
       childFunc() {
-        this.$emit('send-message', this.msg);
+        this.msg = '변경된 메세지.'
       }
     }
   }
