@@ -6,7 +6,7 @@ import HomeView from '../views/HomeView.vue'
 import DataBinding from '../views/DataBinding.vue'
 import Rendering from '../views/RenderingIf.vue'
 import Event from '../views/EventChange.vue'
-import Component from '../views/ParentComponent5.vue'
+import Component from '../views/ProvideInject.vue'
 
 const routes = [{
     path: '/',
