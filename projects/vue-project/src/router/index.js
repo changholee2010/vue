@@ -1,10 +1,14 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DataBinding from '../views/DataBinding.vue'
-import DataBindingAttr from '../views/DataBindingAttribute.vue'
+import Rendering from '../views/RenderingIf.vue'
+import Event from '../views/EventChange.vue'
+import ComputedComp from '../views/ComputedWatch2.vue'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'home',
     component: HomeView
@@ -15,7 +19,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import( /* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
     path: '/databinding',
@@ -23,9 +27,19 @@ const routes = [
     component: DataBinding
   },
   {
-    path: '/databindingattr',
-    name: 'DataBindingAttr',
-    component: DataBindingAttr
+    path: '/rendering',
+    name: 'Rendering',
+    component: Rendering
+  },
+  {
+    path: '/event',
+    name: 'Event',
+    component: Event
+  },
+  {
+    path: '/computed',
+    name: 'Computed',
+    component: ComputedComp
   }
 ]
 
