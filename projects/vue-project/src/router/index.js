@@ -6,7 +6,7 @@ import HomeView from '../views/HomeView.vue'
 import DataBinding from '../views/DataBinding.vue'
 import Rendering from '../views/RenderingIf.vue'
 import Event from '../views/EventChange.vue'
-import ComputedComp from '../views/ComputedWatch2.vue'
+import NestedComponent from '../views/ParentComponent1.vue'
 
 const routes = [{
     path: '/',
@@ -37,9 +37,9 @@ const routes = [{
     component: Event
   },
   {
-    path: '/computed',
-    name: 'Computed',
-    component: ComputedComp
+    path: '/nested',
+    name: 'Nested',
+    component: NestedComponent
   }
 ]
 

@@ -4,7 +4,7 @@
     <router-link to="/databinding">DataBinding</router-link> |
     <router-link to="/event">Event</router-link> |
     <router-link to="/rendering">Rendering</router-link> |
-    <router-link to="/computed">Computed</router-link>
+    <router-link to="/nested">Nested</router-link>
   </nav>
   <router-view />
 </template>
