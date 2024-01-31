@@ -3,7 +3,7 @@
     <h1>Hello, {{title}}!</h1>
     <div>{{htmlString}}</div>
     <div v-html="htmlString"></div>
-    <input type="text" v-model="valueModel" />
+    <input type="text" v-model="valueModel" v-focus />
     <input type="number" v-model.number="numberModel" />
     <textarea v-model="message"></textarea>
   </div>

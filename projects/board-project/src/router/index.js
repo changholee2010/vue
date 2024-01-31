@@ -2,11 +2,11 @@ import {
   createRouter,
   createWebHistory
 } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
-import DataBinding from '../views/DataBinding.vue'
-import Rendering from '../views/RenderingIf.vue'
-import Event from '../views/EventChange.vue'
-import Component from '../views/StoreAccess.vue'
+import BoardList from '../views/BoardList.vue'
+import BoardRead from '../views/BoardRead.vue'
+import BoardWrite from '../views/BoardWrite.vue'
 
 const routes = [{
     path: '/',
@@ -22,24 +22,20 @@ const routes = [{
     component: () => import( /* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/databinding',
-    name: 'DataBinding',
-    component: DataBinding
+    path: '/list',
+    name: 'boardList',
+    component: BoardList
   },
   {
-    path: '/rendering',
-    name: 'Rendering',
-    component: Rendering
+    path: '/read/:item',
+    name: 'boardRead',
+    component: BoardRead,
+    props: true
   },
   {
-    path: '/event',
-    name: 'Event',
-    component: Event
-  },
-  {
-    path: '/component',
-    name: 'Component',
-    component: Component
+    path: '/write',
+    name: 'boardWrite',
+    component: BoardWrite
   }
 ]
 

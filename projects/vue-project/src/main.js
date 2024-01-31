@@ -9,4 +9,10 @@ const app = createApp(App);
 app.use(router)
 app.mixin(mixins);
 
+app.directive('focus', {
+    mounted(el) {
+        el.focus();
+    }
+})
+
 app.mount('#app')
