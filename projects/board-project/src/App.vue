@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/list">글목록</router-link> |
-    <router-link to="/write">글등록</router-link> |
+    <!-- <router-link to="/write">글등록</router-link> | -->
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
@@ -10,6 +10,16 @@
 
 <script>
   export default {
+    data() {
+      return {
+        boards: [{
+          no: "1",
+          title: "첫번째글",
+          content: "첫번째 글입니다.",
+          view: "1"
+        }]
+      }
+    },
     provide() {
       return {
         boardList: [{
@@ -31,6 +41,11 @@
             view: "1"
           }
         ]
+      }
+    },
+    methods: {
+      boardDelete(no) {
+        console.log('boardDelete', no);
       }
     }
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <header-comp />
     <table id="list">
       <!-- HEADER -->
       <tr>
@@ -17,39 +18,80 @@
         <td><button v-on:click="boardDelete(item.no)">삭제</button></td>
       </tr>
     </table>
-    <router-link style="float:right;" v-bind:to="{ name : 'boardWrite'}">글쓰기</router-link>
+    <button style="float:right;" @click="$router.push('/write')">글쓰기</button>
+    <!-- <router-link style="float:right;" v-bind:to="{ name : 'boardWrite'}">글쓰기</router-link> -->
   </div>
 </template>
 
 <script>
+  import HeaderComp from '../components/HeaderComp.vue';
+
   export default {
+    components: {
+      HeaderComp
+    },
     data: function () {
       return {
-        objects: [{
-            no: "1",
-            title: "첫번째글",
-            content: "첫번째 글입니다.",
-            view: "1"
-          },
-          {
-            no: "2",
-            title: "두번째글",
-            content: "두번째 글입니다.",
-            view: "1"
-          },
-          {
-            no: "3",
-            title: "세번째글",
-            content: "세번째 글입니다.",
-            view: "1"
-          }
-        ],
-        object: []
+        object: [], // 사용안함.
+        // object: [{
+        //     no: "1",
+        //     title: "첫번째글",
+        //     content: "첫번째 글입니다.",
+        //     view: "1"
+        //   },
+        //   {
+        //     no: "2",
+        //     title: "두번째글",
+        //     content: "두번째 글입니다.",
+        //     view: "1"
+        //   },
+        //   {
+        //     no: "3",
+        //     title: "세번째글",
+        //     content: "세번째 글입니다.",
+        //     view: "1"
+        //   }
+        // ]
       }
     },
+    // provide() {
+    //   return {
+    //     boardList: [{
+    //         no: "1",
+    //         title: "첫번째글",
+    //         content: "첫번째 글입니다.",
+    //         view: "1"
+    //       },
+    //       {
+    //         no: "2",
+    //         title: "두번째글",
+    //         content: "두번째 글입니다.",
+    //         view: "1"
+    //       },
+    //       {
+    //         no: "3",
+    //         title: "세번째글",
+    //         content: "세번째 글입니다.",
+    //         view: "1"
+    //       }
+    //     ]
+    //   }
+    // },
     inject: ['boardList'],
+    methods: {
+      boardDelete(no) {
+        this.$parent.$parent.boardDelete(no)
+        // this.$emit('app-delete', no);
+        // this.boardList = this.boardList.filter(board => {
+        //   return board.no == no ? false : true;
+        // })
+        // this.object = this.boardList;
+        // this.object = this.object.filter(board => {
+        //   return board.no == no ? false : true;
+        // })
+      }
+    },
     mounted() {
-      console.log(this.boardList);
       this.object = this.boardList;
     }
   }
