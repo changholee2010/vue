@@ -9,19 +9,12 @@
 </template>
 
 <script>
+  import json from './assets/board.json'
+
   export default {
     data() {
       return {
-        boards: [{
-          no: "1",
-          title: "첫번째글",
-          content: "첫번째 글입니다.",
-          view: "1"
-        }]
-      }
-    },
-    provide() {
-      return {
+        // boardList: [],
         boardList: [{
             no: "1",
             title: "첫번째글",
@@ -43,10 +36,39 @@
         ]
       }
     },
+    // provide() {
+    //   return {
+    //     boardList: [{
+    //         no: "1",
+    //         title: "첫번째글",
+    //         content: "첫번째 글입니다.",
+    //         view: "1"
+    //       },
+    //       {
+    //         no: "2",
+    //         title: "두번째글",
+    //         content: "두번째 글입니다.",
+    //         view: "1"
+    //       },
+    //       {
+    //         no: "3",
+    //         title: "세번째글",
+    //         content: "세번째 글입니다.",
+    //         view: "1"
+    //       }
+    //     ]
+    //   }
+    // },
     methods: {
       boardDelete(no) {
         console.log('boardDelete', no);
+        this.boardList = this.boardList.filter(board => {
+          return board.no == no ? false : true;
+        })
       }
+    },
+    mounted() {
+      console.log('App.vue', json);
     }
   }
 </script>

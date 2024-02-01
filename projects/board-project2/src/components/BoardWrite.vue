@@ -13,13 +13,13 @@
       </tr>
     </table>
     <!-- <router-link style="float:right;" v-bind:to="{ name : 'boardList'}">목록</router-link> -->
-    <button style="float:right;" @click="$router.push('/list')">목록</button>
+    <button style="float:right;" @click="$router.push('/board')">목록</button>
     <button style="float:right;" v-on:click="boardSave">저장</button>
   </div>
 </template>
 
 <script>
-  import HeaderComp from '../components/HeaderComp.vue';
+  import HeaderComp from './HeaderComp.vue';
 
   export default {
     components: {
@@ -33,19 +33,13 @@
     },
     methods: {
       boardSave: function () {
-        let boardInfo = {
-          'id': 2,
-          'title': this.title,
-          'post': this.content
-        }
-        console.log(boardInfo)
-        // const VueObject = this;
-
+        console.log('BoardWrite>boardSave')
+        this.$emit('save-board', this.title, this.content);
       }
     },
     mounted() {
-      this.object = this.boardList;
-      console.log('boardWrite', this.$parent.$parent)
+      // this.object = this.boardList;
+      console.log('boardWrite', this.$parent.boardList)
     }
   }
 </script>
