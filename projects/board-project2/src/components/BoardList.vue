@@ -7,7 +7,7 @@
         <th style="width:50px;">글번호</th>
         <th>글제목</th>
         <th style="width:50px;">조회수</th>
-        <th style="width:70px;"></th>
+        <th style="width:70px;">삭제</th>
       </tr>
       <!-- DATA LIST -->
       <tr v-for="item in object" v-bind:key="item.no">

@@ -3,6 +3,7 @@
     <BoardList v-bind:object="boardList" v-if="listView" @show-read="showRead" @show-write="showWrite" />
     <BoardRead v-if="readView" v-bind:board="board" @show-list="showList" />
     <BoardWrite v-if="writeView" @save-board="saveBoard" />
+    <FooterComp />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
   import BoardList from '../components/BoardList.vue'
   import BoardRead from '../components/BoardRead.vue'
   import BoardWrite from '../components/BoardWrite.vue'
+  import FooterComp from '../components/FooterComp.vue'
 
   export default {
     components: {
       BoardList,
       BoardRead,
-      BoardWrite
+      BoardWrite,
+      FooterComp
     },
     data() {
       return {
