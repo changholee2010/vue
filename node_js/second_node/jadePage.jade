@@ -1,0 +1,26 @@
+doctype html
+html 
+    head 
+        title jade test page
+        style. 
+            h1 {
+                background: yellow;
+            }
+        script(src='https://code.jquery.com/jquery-1.12.4.js')
+    body 
+        // jade test page 
+        h1 hello
+        h2 this page is ...
+        hr 
+        h3= name
+        a(href='https://www.daum.net', data-test='multiple Attribute') daum
+        #header 
+        .container 
+            .menu.first
+            .content 
+                - for(let i=0; i<10; i++) {
+                p('class=data') #{i} times
+                - }
+        script.
+            $('#header').html('<p>Hello</p>');
+            console.log('hello')
