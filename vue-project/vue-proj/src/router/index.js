@@ -1,9 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import DataBindingView from '../views/DataBindingAttribute.vue'
+import DataBindingView from '../views/DataBindingRadio.vue'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'home',
     component: HomeView
@@ -14,10 +16,10 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import( /* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path:'/databinding',
+    path: '/databinding',
     name: 'DataBinding',
     component: DataBindingView
   }
@@ -28,4 +30,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;
