@@ -1,139 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>자바스크립트 프레임워크 개발자 양성과정</title>
     <style>
-        label {
-            display: inline-block;
-            width: 80px;
-            text-align: center;
-        }
+      label {
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+      }
 
-        div.btns {
-            width: 30%;
-            float: right;
-            position: relative;
-            top: -70px;
-        }
+      div.btns {
+        width: 30%;
+        float: right;
+        position: relative;
+        top: -70px;
+      }
 
-        button {
-            width: 80px;
-            margin: 2px;
-        }
+      button {
+        width: 80px;
+        margin: 2px;
+      }
 
-        main {
-            width: 100%;
-        }
+      main {
+        width: 100%;
+      }
 
-        main>table {
-            width: 100%;
-            padding: 0 auto;
-        }
+      main > table {
+        width: 100%;
+        padding: 0 auto;
+      }
 
-        td {
-            text-align: center;
-        }
+      td {
+        text-align: center;
+      }
 
-        div.disp {
-            margin-top: 10px;
-            position: relative;
-            top: 20px;
-            left: 20px;
-        }
-        header {
-            border: 2px solid black;
-            height: 135px;
-        }
+      div.disp {
+        margin-top: 10px;
+        position: relative;
+        top: 20px;
+        left: 20px;
+      }
+      header {
+        border: 2px solid black;
+        height: 135px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <br>
+  <body>
+    <br />
     <header>
-        <div class="disp">
-            <label>학생이름:</label> <input type="text" name="name" id="name" value="열심히"> <br>
-            <label>나이:</label> <input type="text" name="age" id="age" value="21"><br>
-            <label>점수:</label> <input type="text" name="score" id="score" value="88"><br>
+      <div class="disp">
+        <label>학생이름:</label>
+        <input type="text" name="name" id="name" value="열심히" /> <br />
+        <label>나이:</label>
+        <input type="text" name="age" id="age" value="21" /><br />
+        <label>점수:</label>
+        <input type="text" name="score" id="score" value="88" /><br />
+      </div>
+
+      <div class="btns">
+        <div class="fnc">
+          <button id="addBtn">등록</button>
+          <button id="addBtn">선택삭제</button>
         </div>
 
-        <div class="btns">
-            <div class="fnc">
-                <button id="addBtn">등록</button>
-                <button id="addBtn">선택삭제</button>
-            </div>
-
-            <div class="cal">
-                <button id="avgBtn">평균계산</button>
-                <button id="maxBtn">최고점수</button>
-            </div>
+        <div class="cal">
+          <button id="avgBtn">평균계산</button>
+          <button id="maxBtn">최고점수</button>
         </div>
-
+      </div>
     </header>
 
     <main>
-        <table id="result" border="1">
-            <thead>
-                <tr>
-                    <th>이름</th>
-                    <th>나이</th>
-                    <th>점수</th>
-                    <th><input type="checkbox"></th>
-                </tr>
-            </thead>
-            <tbody id="list">
-                <!-- 기능 구현한 결과화면.. -->
-                <tr>
-                    <td>황은수</td>
-                    <td>20</td>
-                    <td>70</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>김이서</td>
-                    <td>21</td>
-                    <td>80</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>박민수</td>
-                    <td>25</td>
-                    <td>90</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
+      <table id="result" border="1">
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>점수</th>
+            <th><input type="checkbox" /></th>
+          </tr>
+        </thead>
+        <tbody id="list">
+          <!-- 기능 구현한 결과화면.. -->
+          <tr>
+            <td>황은수</td>
+            <td>20</td>
+            <td>70</td>
+            <td><input type="checkbox" /></td>
+          </tr>
+          <tr>
+            <td>김이서</td>
+            <td>21</td>
+            <td>80</td>
+            <td><input type="checkbox" /></td>
+          </tr>
+          <tr>
+            <td>박민수</td>
+            <td>25</td>
+            <td>90</td>
+            <td><input type="checkbox" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
 
-        <div id="calculate">
-            <span id="max">최고점수: 90</span>
-            <span id="max">평균점수: 80</span>
-        </div>
-
+      <div id="calculate">
+        <span id="max">최고점수: 90</span>
+        <span id="max">평균점수: 80</span>
+      </div>
     </main>
 
     <script>
-        let students = [{
-            name: "황은수",
-            age: 20,
-            score: 70
-        }, {
-            name: "김이서",
-            age: 21,
-            score: 80
-        }, {
-            name: "박민수",
-            age: 25,
-            score: 90
-        }]
+      let students = [
+        {
+          name: "황은수",
+          age: 20,
+          score: 70,
+        },
+        {
+          name: "김이서",
+          age: 21,
+          score: 80,
+        },
+        {
+          name: "박민수",
+          age: 25,
+          score: 90,
+        },
+      ];
 
-        console.log('test')
-        console.log('node_js');
+      console.log("test");
+      console.log("node_js");
     </script>
-
-</body>
-
+  </body>
 </html>
