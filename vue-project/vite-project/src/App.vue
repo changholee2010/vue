@@ -1,4 +1,6 @@
 <script setup>
+import ComponentVue from "./ComponentVue.vue";
+
 defineProps({
   title: {
     type: String,
@@ -9,12 +11,17 @@ defineProps({
     type: String,
     default: "This is start vue project",
   },
+  ahah: {
+    type: String,
+    default: "prop message",
+  },
 });
 </script>
 
 <template>
   <h3>{{ title }}</h3>
   <p v-text="contents"></p>
+  <ComponentVue :msg="ahah"></ComponentVue>
 </template>
 
 <style scoped>
