@@ -1,6 +1,8 @@
 import "./assets/main.css";
 
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import App from "./App.vue";
+import AppCom from "./AppCom.vue";
+import ExeCom from "./ExeCom.vue";
 
-createApp(App).mount("#app");
+createApp(ExeCom).mount("#app");
