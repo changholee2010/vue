@@ -1,27 +1,20 @@
 <script setup>
-import ComponentVue from "./ComponentVue.vue";
-
-defineProps({
-  title: {
-    type: String,
-    required: true,
-    default: "Hello",
-  },
-  contents: {
-    type: String,
-    default: "This is start vue project",
-  },
-  ahah: {
-    type: String,
-    default: "prop message",
-  },
-});
+import HelloWorld from "./components/HelloWorld.vue";
+import TheWelcome from "./components/TheWelcome.vue";
 </script>
 
 <template>
-  <h3>{{ title }}</h3>
-  <p v-text="contents"></p>
-  <ComponentVue :msg="ahah"></ComponentVue>
+  <header>
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+    </div>
+  </header>
+
+  <main>
+    <TheWelcome />
+  </main>
 </template>
 
 <style scoped>
