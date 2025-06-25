@@ -73,7 +73,9 @@ export default {
   },
   methods: {
     kakaoLogin() {
-      window.Kakao.Auth.login({});
+      window.Kakao.Auth.login({
+        
+      });
     },
   },
 };

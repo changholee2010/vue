@@ -1,28 +1,26 @@
-const {
-  defineConfig
-} = require('@vue/cli-service')
+const { defineConfig } = require("@vue/cli-service");
 
-const target = 'http://127.0.0.1:3000';
+const target = "http://127.0.0.1:3000";
 
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  transpileDependencies: true,
+});
 
 module.exports = {
   devServer: {
     port: 8080,
     proxy: {
-      '^/api': {
+      "^/api": {
         target,
-        changeOrigin: true
-      }
-    }
-  }
-}
+        changeOrigin: true,
+      },
+    },
+  },
+};
 
 // prefetch off.
 module.exports = {
-  chainWebpack: config => {
-    config.plugins.delete('prefetch');
-  }
-}
+  chainWebpack: (config) => {
+    config.plugins.delete("prefetch");
+  },
+};
