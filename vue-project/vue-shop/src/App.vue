@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Header from "./layouts/Header";
-import Footer from "./layouts/Footer";
+import Header from "./layouts/HeaderLayout";
+import Footer from "./layouts/FooterLayout";
 export default {
   components: { Header, Footer },
   computed: {
