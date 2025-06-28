@@ -14,4 +14,4 @@ app.use(VueSweetAlert2);
 
 app.mount("#app");
 
-window.Kakao.init("");
+window.Kakao.init("83f782f22bd91b801f06bcc95bb4bc8f");
