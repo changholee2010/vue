@@ -73,7 +73,7 @@ export default {
   methods: {
     async getProductList() {
       this.productList = await this.$api("/api/productList2", {});
-      console.log(this.productList);
+      // console.log(this.productList);
     },
     goToInsert() {
       this.$router.push({ path: "/create" });
@@ -105,7 +105,8 @@ export default {
             this.getProductList();
             this.$swal.fire("삭제되었습니다!", "", "success");
           }
-        });
+        })
+        .catch((err) => console.log(err));
     },
   },
 };

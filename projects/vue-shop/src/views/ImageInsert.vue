@@ -175,7 +175,6 @@ export default {
       let productDetail = await this.$api("/api/productDetail", {
         param: [this.productId],
       });
-      console.log("this.productDetail", productDetail);
       if (productDetail.length > 0) {
         this.productDetail = productDetail[0];
       }
@@ -184,7 +183,6 @@ export default {
       this.productImage = await this.$api("/api/imageList", {
         param: [this.productId],
       });
-      console.log("this.productImage", this.productImage);
     },
     deleteImage(id) {
       this.$swal

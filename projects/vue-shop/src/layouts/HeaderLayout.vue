@@ -16,18 +16,38 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">홈</router-link>
+            <router-link
+              class="nav-link"
+              v-bind:class="page == 'home' ? 'active' : ''"
+              @click="setPage('home')"
+              to="/"
+              >홈</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link active" to="/">제품리스트</router-link>
+            <router-link
+              class="nav-link"
+              v-bind:class="page == 'productList' ? 'active' : ''"
+              to="/list"
+              @click="setPage('productList')"
+              >제품리스트</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/detail"
+            <router-link
+              class="nav-link"
+              v-bind:class="page == 'productDetail' ? 'active' : ''"
+              @click="setPage('productDetail')"
+              to="/detail"
               >제품상세페이지</router-link
             >
           </li>
           <li v-if="user.email != undefined" class="nav-item">
-            <router-link class="nav-link" to="/sales"
+            <router-link
+              class="nav-link"
+              v-bind:class="page == 'SalesList' ? 'active' : ''"
+              @click="setPage('SalesList')"
+              to="/sales"
               >제품등록페이지</router-link
             >
           </li>
@@ -64,12 +84,20 @@
 <script>
 export default {
   name: "HeaderComp",
+  data() {
+    return {
+      page: "home",
+    };
+  },
   computed: {
     user() {
       return this.$store.state.user;
     },
   },
   methods: {
+    setPage(page) {
+      this.page = page;
+    },
     kakaoLogin() {
       window.Kakao.Auth.login({
         scope: "profile_nickname, account_email",

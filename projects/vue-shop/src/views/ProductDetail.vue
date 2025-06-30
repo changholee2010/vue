@@ -177,21 +177,20 @@ export default {
       return this.$currencyFormat(value);
     },
     async getProductDetail() {
-      let productDetail = await this.$api("/api/productDetail", {
+      let productDetail = await this.$api("/api/productDetail2", {
         param: [this.productId],
       });
       if (productDetail.length > 0) {
         this.productDetail = productDetail[0];
-        this.totalPrice = this.totalPrice =
-          this.productDetail.product_price * this.total;
+        this.totalPrice = this.productDetail.product_price * this.total;
       }
-      console.log(this.productDetail);
+      // console.log(this.productDetail);
     },
     async getProductImage() {
       this.productImage = await this.$api("/api/productMainImages", {
         param: [this.productId],
       });
-      console.log("this.productImage", this.productImage);
+      // console.log("this.productImage", this.productImage);
     },
   },
 };
