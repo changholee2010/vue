@@ -175,6 +175,7 @@ export default {
       let productDetail = await this.$api("/api/productDetail", {
         param: [this.productId],
       });
+      console.log("this.productDetail", productDetail);
       if (productDetail.length > 0) {
         this.productDetail = productDetail[0];
       }
@@ -209,7 +210,7 @@ export default {
         data = await this.$base64(files[0]);
       }
       const { error } = await this.$api(
-        `/upload/${this.productId}/${type}/${name}`,
+        `/uploads/${this.productId}/${type}/${name}`,
         { data }
       );
       if (error) {
