@@ -42,11 +42,9 @@
             </button>
           </li>
           <li v-else>
-            <button
-              class="btn btn-danger"
-              type="button"
-              v-on:click="kakaoLogout"
-            ></button>
+            <button class="btn btn-danger" type="button" v-on:click="logout">
+              로그아웃
+            </button>
           </li>
         </ul>
         <form action="" class="d-flex">
@@ -87,11 +85,35 @@ export default {
           const nickname = kakao_account.profile_nickname;
           const email = kakao_account.account_email;
           console.log(nickname, email);
-          alert("success login");
+          this.login(kakao_account);
+          alert("로그인 성공");
         },
         fail: (err) => {
           console.log(err);
         },
+      });
+    },
+    async login(kakao_account) {
+      console.log(kakao_account);
+      await this.$api("/api/login", {
+        param: [
+          {
+            email: kakao_account.email,
+            nickname: kakao_account.profile.nickname,
+            type: 1,
+          },
+          { nickname: kakao_account.profile.nickname },
+        ],
+      });
+      console.log(kakao_account);
+      this.$store.commit("user", kakao_account);
+    },
+    logout() {
+      window.Kakao.Auth.logout((response) => {
+        console.log(response);
+        this.$store.commit("user", {});
+        alert("로그아웃");
+        this.$router.push({ path: "/" });
       });
     },
   },
