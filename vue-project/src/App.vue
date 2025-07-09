@@ -5,7 +5,18 @@
     <router-link to="/data">Data link</router-link>
   </nav>
   <router-view />
+  <p>App.vue : {{ msg }}</p>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      msg: "",
+    };
+  },
+};
+</script>
 
 <style>
 #app {

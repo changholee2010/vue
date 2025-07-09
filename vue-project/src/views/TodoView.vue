@@ -6,30 +6,30 @@
   </div>
 
   <ul id="myUL">
-    <li
-      v-bind:key="todo.id"
-      v-for="todo in todoList"
-      v-bind:class="{ checked: todo.chk }"
-      v-on:click="itemClick(todo.id)"
-    >
+    <li v-bind:key="todo.id" v-for="todo in todoList">
       {{ todo.name }}
-      <span v-on:click="removeTodo(todo.id)" class="close">X</span>
     </li>
   </ul>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       msg: "",
-      todoList: [
-        { id: 1, name: "Hit the gym", chk: false },
-        { id: 2, name: "Pay bills", chk: false },
-        { id: 3, name: "Meet George", chk: true },
-        { id: 4, name: "Read a book", chk: false },
-      ],
+      todoList: [],
     };
+  },
+  mounted() {
+    axios({
+      method: "get",
+      url: "http://localhost:3000/todoList",
+    }).then((result) => {
+      this.todoList = result.data;
+      console.log(this.todoList);
+    });
   },
   methods: {
     newElement() {
@@ -50,8 +50,23 @@ export default {
       }
     },
     removeTodo(no) {
-      // 배열에서 제거하기.
-      this.todoList = this.todoList.filter((item) => item.id != no);
+      axios({
+        method: "delete",
+        url: "http://localhost:3000/todo/" + no,
+      })
+        .then((result) => {
+          console.log(result);
+          // 삭제요청의 성공/실패.
+          if (result.data.errno) {
+            alert("처리실패");
+            return;
+          }
+          // 배열에서 제거하기.
+          this.todoList = this.todoList.filter((item) => item.id != no);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
