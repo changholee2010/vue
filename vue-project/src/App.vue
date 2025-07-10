@@ -4,6 +4,8 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/data">Data link</router-link>
   </nav>
+  <router-view />
+
   <div class="appUse" v-if="appUse">
     <div>
       <h3>App.vue(부모컴포넌트 - Provider)</h3>
@@ -12,9 +14,9 @@
       </p>
       <MiddleComponent />
     </div>
-    <!-- <router-view /> -->
   </div>
-  <div>
+
+  <div v-if="appUse">
     <h1>🛍 Vue Provide/Inject 장바구니 예제</h1>
     <ProductList />
     <CartView />
