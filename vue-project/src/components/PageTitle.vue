@@ -1,6 +1,6 @@
 <template>
   <slot name="header"></slot>
-  <h3>PageTitle</h3>
+  <h3>PageTitle.vue</h3>
   <p>{{ title }}</p>
   <p>{{ likes }}</p>
   <p v-bind:class="{ 'red-font': isOK }">환영합니다.</p>
