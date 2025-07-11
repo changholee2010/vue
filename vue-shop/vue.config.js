@@ -12,6 +12,10 @@ module.exports = {
         target,
         changeOrigin: true,
       },
+      "^/upload": {
+        target,
+        changeOrigin: true,
+      },
     },
   },
 };

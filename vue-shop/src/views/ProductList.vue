@@ -69,7 +69,6 @@
    Created: 이창호.
    Date: 2025.07.11
 */
-import axios from "axios";
 export default {
   data() {
     return {
@@ -77,20 +76,21 @@ export default {
     };
   },
   methods: {
-    goToDetail() {
-      //
+    goToDetail(product_id) {
+      // this.$router.push('/3/detail', param)
+      // this.$router.push(/name, param)
+      this.$router.push({
+        name: "productDetail",
+        query: { product_id: product_id },
+      });
+    },
+    async getProductList() {
+      this.productList = await this.$api("/api/productList", {});
     },
   },
   mounted() {
-    axios({
-      method: "post",
-      url: "/api/productList",
-      data: {},
-    })
-      .then((result) => {
-        this.productList = result.data;
-      })
-      .catch((err) => console.log(err));
+    // component 생성후 화면에 출력되는 시점.
+    this.getProductList();
   },
 };
 </script>

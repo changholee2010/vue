@@ -92,15 +92,56 @@ export default {
   data() {
     return {
       page: "",
-      user: { email: "" },
+      user: {},
     };
   },
   methods: {
+    kakaoLogin() {
+      window.Kakao.Auth.login({
+        scope: "profile_nickname, account_email",
+        success: this.getKakaoAccount,
+      });
+    },
+    getKakaoAccount() {
+      window.Kakao.API.request({
+        url: "/v2/user/me",
+        success: (res) => {
+          console.log(res);
+          const kakao_account = res.kakao_account;
+          const nickname = kakao_account.profile.nickname;
+          const email = kakao_account.email;
+          console.log(nickname, email);
+          this.login(kakao_account);
+          alert("로그인 성공");
+          this.user = { email: email };
+        },
+        fail: (err) => {
+          console.log(err);
+          alert("인증실패");
+        },
+      });
+    },
+    async login(account) {
+      // db insert.
+      await this.$api("/api/signUp", {
+        param: [
+          { email: account.email, nickname: account.profile.nickname, type: 1 },
+          { email: account.email },
+        ],
+      });
+      console.log("insert !!");
+    },
     setPage() {
       //
     },
     logout() {
       //
+      window.Kakao.Auth.logout((response) => {
+        console.log(response);
+        alert("로그아웃");
+        this.user = {};
+        this.$router.push({ path: "/list" });
+      });
     },
   },
 };
