@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 // import ImageInsert from "../views/ImageInsert.vue";
-// import ProductList from "../views/ProductList.vue";
+import ProductList from "../views/ProductList.vue";
 
 const routes = [
   {
@@ -14,11 +14,11 @@ const routes = [
   //   name: "imageInsert",
   //   component: ImageInsert,
   // },
-  // {
-  //   path: "/list",
-  //   name: "productList",
-  //   component: ProductList,
-  // },
+  {
+    path: "/list",
+    name: "productList",
+    component: ProductList,
+  },
 ];
 
 const router = createRouter({

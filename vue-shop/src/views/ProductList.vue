@@ -61,3 +61,36 @@
     </div>
   </main>
 </template>
+
+<script>
+/*
+   File: ProductList.vue
+   Content: 상품목록, /list => ProductList.vue
+   Created: 이창호.
+   Date: 2025.07.11
+*/
+import axios from "axios";
+export default {
+  data() {
+    return {
+      productList: [],
+    };
+  },
+  methods: {
+    goToDetail() {
+      //
+    },
+  },
+  mounted() {
+    axios({
+      method: "post",
+      url: "/api/productList",
+      data: {},
+    })
+      .then((result) => {
+        this.productList = result.data;
+      })
+      .catch((err) => console.log(err));
+  },
+};
+</script>
